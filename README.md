@@ -7,6 +7,7 @@ Here are my tests for Assignment 4.
 3) Execution:
     i) Use as4_test to run the tests as they are
     ii) Use the -p flag to generate extra prints which might be helpful to some.
+    iii) Use the -seek or -random flags to run only -seek or -random (Obviously using both flags runs everything anyways)
     
 ### Edge cases:
 #### Seek:
