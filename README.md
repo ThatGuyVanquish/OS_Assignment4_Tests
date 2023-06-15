@@ -5,9 +5,9 @@ Here are my tests for Assignment 4.
 1) Add the 3 files to /user
 2) Add the line $U/_as4_test to the makefile
 3) Execution:
-    i) Use as4_test to run the tests as they are
-    ii) Use the -p flag to generate extra prints which might be helpful to some.
-    iii) Use the -seek or -random flags to run only -seek or -random (Obviously using both flags runs everything anyways)
+    ###### i) as4_test executes the tests
+    ###### ii) -p flag generates extra prints which might be helpful to some.
+    ###### iii) -seek | -random flags run only -seek or -random (Obviously using both flags runs everything anyways)
     
 ### Edge cases:
 #### Seek:
