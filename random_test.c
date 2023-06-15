@@ -176,6 +176,17 @@ test_concurrency_write(int fd, int print)
   return 0;
 }
 
+// Checks writing with n != 1 returns -1
+int
+test_fail_write(int fd)
+{
+  uint8 newSeed = 0x45;
+  if (write(fd, &newSeed, 6) != -1)
+    return 0;
+  
+  return 1;
+}
+
 // Prints out the error message received, sets seed to the original seed 0x2A and closes the device
 void
 handleFailure(char *errorMsg, int fd)
@@ -209,6 +220,13 @@ test_random(int print)
   }
   if (print) printf("SUCCESS: Passed looping to regenerate original seed\n");
 
+  if (test_fail_write(fd) == 0)
+  {
+    handleFailure("ERROR: Failed writing new seed with n != 1 returned 1 rather than -1", fd);
+    return 0;
+  }
+  if (print) printf("SUCCESS: Passed calling write with n != 1 failed successfuly!\n");
+  
   if (set_seed(fd, 0x4C) == -1)
     {
     handleFailure("ERROR: Failed writing a new seed", fd);
